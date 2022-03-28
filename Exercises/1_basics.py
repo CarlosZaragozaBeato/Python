@@ -196,13 +196,18 @@ the calendar of a given month and year.
 Note : Use 'calendar' module.
 """
 
+import calendar 
 
+def Exercise12 (year,month):
+    print(calendar.month(year,month,00))
 
+Exercise12(1999,7)
 
 
 
 """
-13. Write a Python program to print the following 'here document'. Go to the editor
+13. Write a Python program to print the following 
+'here document'. Go to the editor
 Sample string :
 a string that you "don't" have to escape
 This
@@ -210,8 +215,22 @@ is a ....... multi-line
 heredoc string --------> example
 """
 
+def Exercise13():
+    print("a string that you don't have to escape \n"+
+          "This\n"+
+          "is a ....... multi-line\n"+
+          'heredoc string ---------> example\n'
+          '"""')
+    print(
+        """
+        a string that you "don't" have to escape
+        This
+        is a  ....... multi-line
+        heredoc string --------> example
+        """)
 
 
+Exercise13()
 
 
 
@@ -220,17 +239,24 @@ heredoc string --------> example
 Sample dates : (2014, 7, 2), (2014, 7, 11)
 Expected output : 9 days
 """
-
-
-
+from datetime import date
+def Exercise14():
+    date1 = date(2014,7,2)
+    date2 = date(2014,7,11)
+    print(abs(date1-date2).days)
+    
+Exercise14() 
 
 
 """
 15. Write a Python program to get the volume of a sphere with radius 6.
 """
+import math
+def Exercise15():
+    volume = (4/3)*(math.pi *(math.pow(6,3)));
+    print(volume)
 
-
-
+Exercise15()
 
 
 """
@@ -238,16 +264,29 @@ Expected output : 9 days
 get the difference between a given
 number and 17, if the number is greater
 than 17 return double the absolute difference
-""" 
+"""
+import math
+def Exercise16(value):
+    if value>17:
+        resultado = (value-17)
+    else:
+        resultado = abs(value-17)
 
+    return resultado
 
-
+print(Exercise16(17))
 
 
 """
 17. Write a Python program to test whether
 a number is within 100 of 1000 or 2000.
 """
+
+def Exercise17(number):
+   return ((abs(1000 - number) <= 100) or (abs(2000 - number) <= 100))
+
+Exercise17(100)  
+        
 
 
 
@@ -261,6 +300,16 @@ if the values are equal then return three
 times of their sum.
 """
 
+def Exercise18(x,y,z):
+    
+     sum = x + y + z
+  
+     if x == y == z:
+      sum = sum * 3
+     return sum
+    
+Exercise18(1,3,3)
+    
 
 
 
@@ -271,6 +320,14 @@ a new string from a given string where
 If the given string already begins 
 with "Is" then return the string unchanged.
 """
+def Exercise19(chain):
+    if chain.startswith("Is"):
+        return chain
+    else:
+        chain = "Is "+chain
+        return chain
+
+print(Exercise19("Is asdlkashnkdoj"))
 
 
 
@@ -280,6 +337,17 @@ with "Is" then return the string unchanged.
 20. Write a Python program to get a string which 
 is n (non-negative integer) copies of a given string.
 """
+
+def Exercise20(stringValue, n):
+    chain = ""
+    for i in range(n):
+        chain = chain+stringValue
+    return chain
+
+print(Exercise20("Value",2))
+
+    
+
 
 
 
