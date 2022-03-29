@@ -1,3 +1,4 @@
+#https://www.w3resource.com/python-exercises/python-basic-exercises.php
 """
 1. Write a Python program to print the following string in a 
 specific format (see the output). Go to the editor
@@ -345,12 +346,6 @@ def Exercise20(stringValue, n):
     return chain
 
 print(Exercise20("Value",2))
-
-    
-
-
-
-
 
 
 """
