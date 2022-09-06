@@ -680,10 +680,6 @@ class Motorcycle(Vehicle):
         
     def stop(self):
         print("This motorcycle is stopped")
-        
-
-
-
 car = Car()
 motorcycle = Motorcycle()
 
@@ -768,4 +764,476 @@ foods = list()
 while food := input("What food do yoy like") != "quit":
     foods.append(food) 
 print(foods)
+"""
+"""
+# MAP () = Applies a function to each item in an iterable (list, tuple, etc.)
+
+map(function, iterable)
+store = [("shirt", 20.00),
+        ("pants",25.00),
+        ("jacket", 50.00),
+        ("socks", 10.00)]
+
+to_euros = lambda data:(data[0], data[1] * 0.82)
+# to_dollars = lambda data: (data[0], data[1] / .82)
+
+store_euros = list(map(to_euros, store))
+
+for i in store_euros:
+    print(i)
+"""
+"""
+#Filter
+filter () ) creates a collection of elements from an iterable for which a function returns
+
+filter(function, iterable)
+friends = [("Rachel",29),
+          ("Monica",28),
+          ("Phoebe",27),
+          ("Joey",26),
+          ("Chandler",31),
+          ("Ross",30)]
+
+age = lambda data:data[1] >=28
+
+old_buddies = list(filter(age, friends))
+
+for i in old_buddies:
+    print(i)
+"""
+
+"""
+reduce() = apply a function to an iterable and reduce it to a single cumulative value.
+    performs function on first two elements and repeats process util 1 value remains
+
+reduce(function, iterable)
+
+import functools
+
+letters = ["H","E","L","L","O"]
+
+word = functools.reduce(lambda x, y,: x + y, letters)
+print(word)
+"""
+
+"""
+#list comprehension = a way to create a new list with less sintax can mimic certain lambda
+functions, easier to read
+list = [expression for item in iterable]
+list = [expression for item in iterable if condition]
+list = [expression if/else for item in iterable]
+
+students = [100,90,80,70,60,50,40,30,20,10,0]
+#passed_students = listt(filter(lambda x: x >= 60, students))
+#passed_students = [i for i in students if  i >= 60]
+
+passed_students = [i if i >= 60 else "FAILED" for i in students]
+print(passed_students)
+"""
+"""
+dictionary comprehension = create dictionaries using an expression can replace for loops 
+and certain lambda functions
+
+dictionary = {key: expression for (key, value) in iterable}
+dictionary = {key: expresion for (key,value) in iterable if conditional}
+dictionary = {key: (if/ else) for (key, value) in iterable}
+dictionary = {key: function(value) for(key, value)in iterable}
+
+cirties_in_F = {'New York':32,
+                'Boston':75,
+                'Los Angeles': 100,
+                'Chicago':50}
+cities_in_C = {key:round((value - 32) * (5/9)) for (key, value) in cirties_in_F.items()}
+print(cities_in_C)
+
+weather = {'New York':"snowing",
+            'Boston':"sunny",
+            'Los Angeles': "sunny",
+            'Chicago':"cloud"}
+
+sunny_weather = {key:value for (key, value) in weather.items() if value =="sunny"}
+print(sunny_weather) 
+"""
+
+"""
+# zip(iterables) = aggregate elements from two or more iterables (list, tuples, sets, etc).
+    creates a zip object with paired elements stored in tuples for each element
+    
+usernames = ["Dude", "Bro", "Mister"]
+passwords = ["passwords", "abc123", "guest"]
+
+users = dict(zip(usernames, passwords))
+print(type(users))
+
+for key, value in users.items():
+    print(key,":",value)
+"""
+
+"""
+Python interpreter sets "special variables", one of which is __name__
+Python will assign the __name__ variable a value of '__main__' if it's
+the initial module being run
+
+def main():
+    print("heelloo")
+    
+if __name__ == "__main__":
+    main()
+"""
+"""Time
+import time
+
+print(time.ctime(0))
+print(time.time())
+print(time.ctime(time.time()))
+time_object = time.localtime()
+local_time = time.strftime("%B %d %Y %H:%M:%S", time_object)
+print(local_time)
+"""
+"""
+    cpu bound = program/task spends most of it's time waiting for internal events
+    use multiprocessing
+
+    io bound = program/task spends most of it's time waiting for external events
+    use multithreading
+    
+    import threading
+import time
+
+def eat_breakfast():
+    print("Starting to eat the breakfast")
+    time.sleep(2)
+    print("You eat breakfast")
+
+
+def drink_coffee():
+    print("Starting to drink the coffee")
+    time.sleep(1)
+    print("You drink coffee")
+
+eat_breakfast()
+drink_coffee()
+"""
+"""
+daemon thread = a thread that runs in the background, not important for program the run
+your program will not wait for daemon threads to complete before existing
+non-daemon threads cannot normally be killed, stay alive until task is complete
+
+ex, background tasks, garbage collection, waiting for input, long running process
+
+import threading
+import time
+
+def timer():
+    print()
+    count = 0
+    while True:
+        time.sleep(1)
+        count += 1
+        print("Logged in for:", count,"seconds")
+        
+x = threading.Thread(target = timer, daemon = True)
+x.start()
+
+x.setDaemon(True)
+print(x.isDaemon())
+answer = input("Do you wish to exit?")
+"""
+"""
+Python Multiprocessing 
+
+multiprocessing = running tasks in parallel on different cpu cores, bypasses GIL used for thread
+multiprocessing = better for cpu bound tasks (heavy cpu usage)
+multithreading = better for io bound tasks(waiting around)
+
+from multiprocessing import Process, cpu_count
+import time
+
+def counter(num):
+    count = 0
+    while count <num:
+        count +=1
+        
+def main():
+    a = Process(target = counter, args = (10000000,))
+    b = Process(target = counter, args = (100000,))
+    c = Process(target = counter, args = (10000,))
+
+    a.start()
+    b.start()
+    c.start()
+    
+    a.join()    
+    b.join()
+    c.join()
+    print("finished in:",time.perf_counter(),"seconds")
+    
+if __name__ == '__main__':
+    main()
+"""
+"""
+tkinter 
+from tkinter import *
+
+window = Tk()
+window.geometry("420x420")
+window.title("Carlos first Gui Program")
+
+#icon = PhotoImage(file = "logo.png")
+#window.iconphoto(True, icon)
+window.config(background="black")
+
+window.mainloop()
+"""
+"""
+Labels
+label = an area widget that holds text and/or an image within a window
+from tkinter import *
+
+
+
+#photo = PhotoImage(file = 'person.png')
+window = Tk()
+
+label = Label(window,
+                text = "Bro, do you even code?",
+                font = ('Arial',40,'bold'),
+                fg = '#00ff00',
+                bg = 'black',
+                relief = RAISED,
+                bd = 10, 
+                padx = 20,
+                pady = 20,
+                compound  = 'bottom')
+label.pack()
+window.mainloop()
+"""
+"""
+button = you click it, the it does stuff
+
+from tkinter import *
+
+count = 0
+
+def click():
+    global count
+    count += 1
+    print(count)
+
+window = Tk()
+
+button = Button(window,
+                text = "click me",
+                command = click,
+                font = ("Comic Sans",30),
+                fg = "#00ff00",
+                bg = "black",
+                activeforeground="#00ff00",
+                activebackground="black",
+                state = ACTIVE,)
+
+
+button.pack()
+
+window.mainloop()
+"""
+"""
+entry widget = textbox that accepts a single line of user input
+
+from tkinter import *
+
+def submit():
+    username = entry.get()
+    print("Hello", username)
+    
+def delete():
+    entry.delete(0, END)
+    
+def backspace():
+    entry.delete(len(entry.get())-1,END)
+
+window = Tk()
+
+entry = Entry(window,
+              font = ("Arial", 50),
+                fg ="#00ff00",
+                bg = "black")
+
+entry.pack(side = LEFT)
+submit_button = Button(window, text = "submit",command = submit)
+submit_button.pack(side = RIGHT)
+
+window.mainloop()
+"""
+"""
+Checkbox
+from tkinter import *
+
+def display():
+    if x.get() ==1:
+        print("You agree!")
+    else:
+        print("You don't agree:(")
+
+window = Tk()
+
+x = IntVar()
+
+check_button = Checkbutton(window,
+                           text = "I agree to somenthing",
+                           variable = x,
+                           onvalue = 1,
+                           offvalue = 0,
+                           command = display,
+                           font= ("Arial",20),
+                           fg = "#00ff00",
+                           bg="black",
+                           activeforeground="#00ff00",
+                           activebackground= "black")
+check_button.pack()
+window.mainloop()
+"""
+
+"""
+radio button = similar to checkbox, but yoy can only select one from a group
+
+from tkinter import *
+
+food = ["pizza","hamburger","hotdog"]
+
+
+def order():
+    if(x.get() == 0): 
+        print("You ordered pizza!")
+    elif(x.get()==1):
+        print("You ordered hamburger!")
+    elif(x.get()==2):
+        print("You ordered hotdog!")
+
+
+window = Tk()
+
+x = IntVar()
+for index in range(len(food)):
+    radiobutton = Radiobutton(window,
+                              text = food[index], variable =x,
+                              value = index,
+                              command = order)
+    radiobutton.pack(anchor = W)
+    
+window.mainloop()
+"""
+
+"""
+ GUI scale
+ from tkinter import *
+
+def submit():
+    print("The temperature is: "+ str(scale.get())+ " degrees C")
+
+window = Tk()
+
+
+scale = Scale(window,
+              from_=100,
+              to=0,
+              length=600,
+              orient=VERTICAL, #orientation of scale
+              font = ('Consolas',20),
+              tickinterval = 10, #adds numeric indicators for value
+              #showvalue = 0, #hide current value
+              resolution = 5, #increment of slider
+              troughcolor = '#69EAFF',
+              fg = '#FF1C00',
+              bg = '#111111'
+
+              )
+scale.set(((scale['from']-scale['to'])/2)+scale['to']) #set current value of slider
+
+scale.pack()
+
+
+button = Button(window,text='submit',command=submit)
+button.pack()
+
+window.mainloop()
+"""
+"""
+Gui ListBox
+listbox = A listing of selectable text items within it's own container
+
+def submit():
+
+    food = []
+
+    for index in listbox.curselection():
+        food.insert(index,listbox.get(index))
+
+    print("You have ordered: ")
+    for index in food:
+        print(index)
+
+def add():
+    listbox.insert(listbox.size(),entryBox.get())
+    listbox.config(height=listbox.size())
+
+def delete():
+    for index in reversed(listbox.curselection()):
+        listbox.delete(index)
+
+    listbox.config(height=listbox.size())
+
+from tkinter import *
+
+window = Tk()
+
+listbox = Listbox(window,
+                  bg="#f7ffde",
+                  font=("Constantia",35),
+                  width=12,
+                  selectmode=MULTIPLE)
+listbox.pack()
+
+listbox.insert(1,"pizza")
+listbox.insert(2,"pasta")
+listbox.insert(3,"garlic bread")
+listbox.insert(4,"soup")
+listbox.insert(5,"salad")
+
+listbox.config(height=listbox.size())
+
+entryBox = Entry(window)
+entryBox.pack()
+
+frame = Frame(window)
+frame.pack()
+
+submitButton = Button(frame,text="submit",command=submit)
+submitButton.pack(side=LEFT)
+
+addButton = Button(frame,text="add",command=add)
+addButton.pack(side=LEFT)
+
+deleteButton = Button(frame,text="delete",command=delete)
+deleteButton.pack(side=LEFT)
+
+window.mainloop()
+"""
+"""
+color chooser
+
+from tkinter import *
+from tkinter import colorchooser
+
+def click():
+    color = colorchooser.askcolor()
+    colorHex = color[1]
+    window.config(bg=colorHex)
+    
+window = Tk()
+window.geometry("420x420")
+button = Button(text='click me',command=click)
+button.pack()
+window.mainloop()
+
 """
