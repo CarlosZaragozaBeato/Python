@@ -1,15 +1,23 @@
 import math
 
 """
-Ejercicio 13
-Realizar un algoritmos que lea un número y que muestre su raíz cuadrada y su raíz cúbica. Python3 no tiene ninguna función predefinida que permita calcular la raíz cúbica, ¿Cómo se puede calcular?
+Escribir un algoritmo para calcular 
+la nota final de un estudiante, considerando que: 
+por cada respuesta correcta 5 puntos, por una incorrecta -1 
+y por respuestas en blanco 0. Imprime el resultado obtenido por el estudiante.
+
+
+
+Diseñar un algoritmo que nos diga el dinero que tenemos (en euros y céntimos) 
+después de pedirnos cuantas monedas tenemos
+(de 2€, 1€, 50 céntimos, 20 céntimos o 10 céntimos).
 
 """
 
-
-
-
-
+correctas = 5
+incorrectas = 2
+puntos = correctas * 5 + incorrectas * (-1)
+print("Puntos:",puntos)
 
 
 
@@ -173,20 +181,100 @@ print(f"The difference in x is {difference_in_x} and the difference in y {differ
 Ejercicio 13
 Realizar un algoritmos que lea un número y que muestre su raíz cuadrada y su raíz cúbica. Python3 no tiene ninguna función predefinida que permita calcular la raíz cúbica, ¿Cómo se puede calcular?
 
+
+raiz_cuadrada =math.sqrt(int(input("Introduzca la raiz cuadrada: ")))
+raiz_cubica = int(input("Introduzca la raiz cubica: "))**(1/3)
+
+
+print(f"La raiz cuadrada es {raiz_cuadrada} y la raiz cubica es {raiz_cubica}")
+*******************************
+
+
 Ejercicio 14
 Dado un número de dos cifras, diseñe un algoritmo que permita obtener el número invertido. Ejemplo, si se introduce 23 que muestre 32.
+
+num = input("Introduzca un numero: ")
+print(num[::-1])
+*******************************
 
 Ejercicio 15
 Dadas dos variables numéricas A y B, que el usuario debe teclear, se pide realizar un algoritmo que intercambie los valores de ambas variables y muestre cuanto valen al final las dos variables.
 
+var_a = 5
+var_b = 10
+
+var_c = var_b
+var_b = var_a
+var_a = var_c
+
+print(var_a)
+print(var_b)
+
+*******************************
+
 Ejercicio 16
 Dos vehículos viajan a diferentes velocidades (v1 y v2) y están distanciados por una distancia d. El que está detrás viaja a una velocidad mayor. Se pide hacer un algoritmo para ingresar la distancia entre los dos vehículos (km) y sus respectivas velocidades (km/h) y con esto determinar y mostrar en que tiempo (minutos) alcanzará el vehículo más rápido al otro.
 
+distancia = 150
+
+vehiculo_1 = 100
+vehiculo_2 = 120
+
+tiempo_1 = abs((distancia/(vehiculo_1-vehiculo_2))*6)
+
+
+
+print(f"Tardaria {tiempo_1} min")
+
+*******************************
+
 Ejercicio 17
 Un ciclista parte de una ciudad A a las HH horas, MM minutos y SS segundos. El tiempo de viaje hasta llegar a otra ciudad B es de T segundos. Escribir un algoritmo que determine la hora de llegada a la ciudad B.
+salida_horas =15 
+salida_min = 27
+salida_segundo = 00
+
+tiempo_de_viaje_horas = 1
+tiempo_de_viaje_minutos = 40
+tiempo_de_viaje_segundos = 60
+
+if(salida_horas!=23):
+      salida_horas += tiempo_de_viaje_horas
+else:
+      salida_horas = 0
+      salida_horas += tiempo_de_viaje_horas
+
+if((salida_min + tiempo_de_viaje_minutos)<60):
+      salida_min += tiempo_de_viaje_minutos
+else:
+      salida_min = 0
+      salida_min = abs(((salida_min+tiempo_de_viaje_minutos)-60))
+      salida_horas+=1
+      
+if((salida_segundo + tiempo_de_viaje_segundos)<60):
+      salida_segundo += tiempo_de_viaje_segundos
+else:
+      salida_segundo = 0
+      salida_segundo = abs(((salida_segundo+tiempo_de_viaje_segundos)-60))
+      salida_min+=1
+      
+print(f"Llega a las {salida_horas} minutos {salida_min} segundos {salida_segundo}")
+*******************************
+
+
+
+
 
 Ejercicio 18
 Pedir el nombre y los dos apellidos de una persona y mostrar las iniciales.
+
+name = input("Introduce your name: ")
+surname = input("Introduce your surname: ")
+
+print(f"{name[0]} {surname[0]}")
+
+*******************************
+
 
 Ejercicio 19
 Escribir un algoritmo para calcular la nota final de un estudiante, considerando que: por cada respuesta correcta 5 puntos, por una incorrecta -1 y por respuestas en blanco 0. Imprime el resultado obtenido por el estudiante.
