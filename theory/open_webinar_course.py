@@ -1,12 +1,10 @@
 import math
 
 """
-Ejercicio 11
-Pide al usuario dos números y muestra la “distancia” entre ellos
-(el valor absoluto de su diferencia, de modo que el resultado sea siempre positivo).
+Ejercicio 13
+Realizar un algoritmos que lea un número y que muestre su raíz cuadrada y su raíz cúbica. Python3 no tiene ninguna función predefinida que permita calcular la raíz cúbica, ¿Cómo se puede calcular?
 
 """
-
 
 
 
@@ -147,8 +145,30 @@ print(total)
 Ejercicio 11
 Pide al usuario dos números y muestra la “distancia” entre ellos (el valor absoluto de su diferencia, de modo que el resultado sea siempre positivo).
 
+
+num1 = int(input("Introduzca un numero: "))
+num2 = int(input("Introduzca un numero: "))
+
+result = abs(num1-num2)
+print(result)
+*******************************
+
+
 Ejercicio 12
 Pide al usuario dos pares de números x1,y2 y x2,y2, que representen dos puntos en el plano. Calcula y muestra la distancia entre ellos.
+
+x1 = 5
+y1 =2
+
+x2 = 10
+y2 = -2
+
+
+difference_in_x = abs(x1 - x2)
+difference_in_y = abs(y1 - y2)
+
+print(f"The difference in x is {difference_in_x} and the difference in y {difference_in_y}")
+*******************************
 
 Ejercicio 13
 Realizar un algoritmos que lea un número y que muestre su raíz cuadrada y su raíz cúbica. Python3 no tiene ninguna función predefinida que permita calcular la raíz cúbica, ¿Cómo se puede calcular?
