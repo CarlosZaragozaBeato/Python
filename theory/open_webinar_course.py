@@ -1,27 +1,5 @@
 import math
 
-"""
-Escribir un algoritmo para calcular 
-la nota final de un estudiante, considerando que: 
-por cada respuesta correcta 5 puntos, por una incorrecta -1 
-y por respuestas en blanco 0. Imprime el resultado obtenido por el estudiante.
-
-
-
-Diseñar un algoritmo que nos diga el dinero que tenemos (en euros y céntimos) 
-después de pedirnos cuantas monedas tenemos
-(de 2€, 1€, 50 céntimos, 20 céntimos o 10 céntimos).
-
-"""
-
-correctas = 5
-incorrectas = 2
-puntos = correctas * 5 + incorrectas * (-1)
-print("Puntos:",puntos)
-
-
-
-
 
 """ 
 Ejercicio 1
@@ -279,6 +257,40 @@ print(f"{name[0]} {surname[0]}")
 Ejercicio 19
 Escribir un algoritmo para calcular la nota final de un estudiante, considerando que: por cada respuesta correcta 5 puntos, por una incorrecta -1 y por respuestas en blanco 0. Imprime el resultado obtenido por el estudiante.
 
+
+correctas = 5
+incorrectas = 2
+puntos = correctas * 5 + incorrectas * (-1)
+print("Puntos:",puntos)
+
+*******************************
+
 Ejercicio 20
 Diseñar un algoritmo que nos diga el dinero que tenemos (en euros y céntimos) después de pedirnos cuantas monedas tenemos (de 2€, 1€, 50 céntimos, 20 céntimos o 10 céntimos).
+
+
+two_euro =3
+one_euro = 4
+f_cent = 2
+tw_cent =4
+t_cent = 8
+
+total_euros = (two_euro*2)+one_euro
+total_cent = (f_cent*50)+(tw_cent*20)+(t_cent*10)
+
+print(total_cent)
+
+if(total_cent<=100):
+      total_cent_temp = abs((total_cent)-100)
+      total_cent = 0
+      total_cent = total_cent_temp
+      total_euros+=1
+elif(total_cent>200):
+      total_cent_temp = abs((total_cent)-200)
+      total_cent = 0
+      total_cent = total_cent_temp
+      total_euros+=2
+      
+print(f"EL total de euros es {total_euros}, y el total de centimos es {total_cent}")
+
 """
