@@ -1,34 +1,6 @@
 import math
 """
 Current Exercise
-
-"""
-
-
-
-
-
-
-
-
-
-
-""" 
-Ejercicio 7
-Realiza un algoritmo que calcule la potencia, para ello pide por teclado la base y el exponente. Pueden ocurrir tres cosas:
-
-El exponente sea positivo, sólo tienes que imprimir la potencia.
-El exponente sea 0, el resultado es 1.
-El exponente sea negativo, el resultado es 1/potencia con el exponente positivo.
-Ejercicio 8
-Algoritmo que pida dos números ‘nota’ y ‘edad’ y un carácter ‘sexo’ y muestre el
-mensaje ‘ACEPTADA’ si la nota es mayor o igual a cinco, la edad es mayor o igual a
-dieciocho y el sexo es ‘F’. En caso de que se cumpla lo mismo, pero el sexo sea ‘M’, debe
-imprimir ‘POSIBLE’. Si no se cumplen dichas condiciones se debe mostrar ‘NO ACEPTADA’.
-
-Ejercicio 9
-Algoritmo que pida tres números y los muestre ordenados (de mayor a menor);
-
 Ejercicio 10
 Algoritmo que pida los puntos centrales x1,y1,x2,y2 y los radios r1,r2 de dos
 circunferencias y las clasifique en uno de estos estados:
@@ -39,6 +11,12 @@ secantes
 tangentes interiores
 interiores
 concéntricas
+"""
+
+
+
+
+"""
 Ejercicio 11
 Programa que lea 3 datos de entrada A, B y C. Estos corresponden a las dimensiones de los lados de un triángulo. El programa debe determinar que tipo de triangulo es, teniendo en cuenta los siguiente:
 
@@ -173,5 +151,58 @@ if(cadena.isupper()):
 else: 
     print("Is Lowercase")
 *****************
+
+
+
+Ejercicio 7
+Realiza un algoritmo que calcule la potencia, para ello pide por teclado la base y el exponente. Pueden ocurrir tres cosas:
+
+El exponente sea positivo, sólo tienes que imprimir la potencia.
+El exponente sea 0, el resultado es 1.
+El exponente sea negativo, el resultado es 1/potencia con el exponente positivo.
+
+base = int(input("Introduce the base"))
+exp = int(input("Introduce the exponent"))
+
+if(exp==0):
+    print(1)
+elif(exp<0):
+    print(1/math.pow(base,abs(exp)))
+else:
+    print(math.pow(base, exp))
+*************************************   
+
+
+
+Ejercicio 8
+Algoritmo que pida dos números ‘nota’ y ‘edad’ y un carácter ‘sexo’ y muestre el
+mensaje ‘ACEPTADA’ si la nota es mayor o igual a cinco, la edad es mayor o igual a
+dieciocho y el sexo es ‘F’. En caso de que se cumpla lo mismo, pero el sexo sea ‘M’, debe
+imprimir ‘POSIBLE’. Si no se cumplen dichas condiciones se debe mostrar ‘NO ACEPTADA’.
+
+
+
+nota = float(input("Introduzca su nota: "))
+edad = int(input("Introduzca su edad: "))
+sexo = input("Introduzca su sexo M/F): ")
+
+if(nota>=5 and edad>=18 and sexo =="F"):
+    print("ACEPTADA")
+elif(nota>=5 and edad>=18 and sexo =="M"):
+    print("POSIBLE")
+****************************************
+
+
+Ejercicio 9
+Algoritmo que pida tres números y los muestre ordenados (de mayor a menor);
+
+
+num_1 = int(input("Introduce el primer valor: "))
+num_2 = int(input("Introduce el segundo valor: "))
+num_3 = int(input("Introduce el tercer valor: "))
+
+nums = [num_1, num_2, num_3]
+nums.sort()
+print(nums)
 
 """
