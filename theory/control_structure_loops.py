@@ -1,25 +1,7 @@
 import math
 import random
-
-
-"""
-Current exercise
-Ejercicio 17
-Una empresa les paga a sus empleados con base en las horas trabajadas en la semana. Para esto, se registran los días que trabajó y las horas de cada día. Realice un algoritmo para determinar el sueldo semanal de N trabajadores y además calcule cuánto pagó la empresa por los N empleados.
-
-Ejercicio 18
-Hacer un programa que muestre un cronometro, indicando las horas, minutos y segundos.
-
-Ejercicio 19
-Realizar un ejemplo de menú, donde podemos escoger las distintas opciones hasta que seleccionamos la opción de “Salir”.
-
-Ejercicio 20
-Mostrar en pantalla los N primero número primos. Se pide por teclado la cantidad de números primos que queremos mostrar.
-"""
-
-
-
-    
+import time
+  
 
 """ 
 Completed 
@@ -341,7 +323,106 @@ print(total)
 ****************
 
 
+Ejercicio 17
+Una empresa les paga a sus empleados con base en las horas trabajadas en la semana. 
+Para esto, se registran los días que trabajó y las horas de cada día. 
+Realice un algoritmo para determinar el sueldo semanal de N trabajadores y 
+además calcule cuánto pagó la empresa por los N empleados.
 
 
+
+dias = random.randint(1,6)
+sueldo_por_hora = random.randint(5,20)
+numero_empleados = random.randint(5,200)
+
+total_por_semana = 0
+
+for i in range(1,dias):
+    horas = random.randint(4,10)
+    total_por_semana += horas*sueldo_por_hora
+
+print(total_por_semana)
+
+***********************
+
+Ejercicio 18
+Hacer un programa que muestre un cronometro, indicando las horas, minutos y segundos.
+
+horas = 1
+minutos = 30
+segundos = 30
+
+
+
+while True:
+    if horas>0 and minutos ==0 and segundos ==0:
+        horas -= 1
+        minutos = 59
+        segundos = 59
+    
+    if segundos == 0 and minutos >0:
+        minutos -= 1
+        segundos = 60
+    
+    if minutos ==0 and segundos == 0 and horas == 0:
+        break
+    
+    segundos -= 1
+    print(f"Horas {horas} minutos{minutos} segundos{segundos}")
+    time.sleep(1)
+
+*************************
+
+
+
+Ejercicio 19
+Realizar un ejemplo de menú, donde podemos escoger las 
+distintas opciones hasta que seleccionamos la opción de “Salir”.
+
+
+precio = 0
+
+
+while True:
+    total_pedido =0 
+
+    opcion = int(input("1.Macarrones\n"+
+                    "2.Tortilla\n"+
+                    "3.Paella\n"+
+                    "4.Sopa\n"+
+                    "5.SALIR\n"))
+
+
+    if opcion == 1:
+        precio += 15.5
+        total_pedido =15.5
+    elif opcion == 2:
+        precio += 12.5
+        total_pedido =12.5
+    elif opcion == 3:
+        precio += 20.5
+        total_pedido =20.5
+    elif opcion == 4:
+        precio += 7.25
+        total_pedido =7.25
+    else: 
+        break
+    
+    print(f"El total del pedido es {total_pedido}")
+
+
+print(f"La cuenta del restaurante es {precio}")
+
+*********************
+
+Ejercicio 20
+Mostrar en pantalla los N primero número primos. Se pide por teclado la
+cantidad de números primos que queremos mostrar.
+
+numeros_primos = int(input("Seleccione los numeros primos: "))
+
+for i in range(2,numeros_primos):
+    if (numeros_primos%i) == 0:
+        print(i)
 
 """
