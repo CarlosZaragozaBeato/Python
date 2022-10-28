@@ -4,27 +4,6 @@ import random
 
 """
 Current exercise
-Ejercicio 16
-Una empresa les paga a sus empleados con base en las horas trabajadas en la semana.
-Realice un algoritmo para determinar el sueldo semanal de N trabajadores y, además,
-calcule cuánto pagó la empresa por los N empleados.
-"""
-
-sueldo_por_hora = random.randint(5,15)
-horas_trabajas_por_dia = random.randint(4,10)
-horas_trabajas_por_semana = horas_trabajas_por_dia*6
-
-total_de_trabajadores = random.randint(5,150)
-
-total = total_de_trabajadores * (horas_trabajas_por_semana*sueldo_por_hora)
-print(total)
-
-
-    
-
-"""
-Ejercicios estructuras repetitivas
-
 Ejercicio 17
 Una empresa les paga a sus empleados con base en las horas trabajadas en la semana. Para esto, se registran los días que trabajó y las horas de cada día. Realice un algoritmo para determinar el sueldo semanal de N trabajadores y además calcule cuánto pagó la empresa por los N empleados.
 
@@ -38,6 +17,9 @@ Ejercicio 20
 Mostrar en pantalla los N primero número primos. Se pide por teclado la cantidad de números primos que queremos mostrar.
 """
 
+
+
+    
 
 """ 
 Completed 
@@ -341,7 +323,22 @@ for i in range(1,21):
     total_pagado +=  pago
     pago = pago*2
 print(f"El total pagado es {total_pagado} y la cantidad restante {abs(total_pagado-producto)}")
+*****************
 
+Ejercicio 16
+Una empresa les paga a sus empleados con base en las horas trabajadas en la semana.
+Realice un algoritmo para determinar el sueldo semanal de N trabajadores y, además,
+calcule cuánto pagó la empresa por los N empleados.
+
+sueldo_por_hora = random.randint(5,15)
+horas_trabajas_por_dia = random.randint(4,10)
+horas_trabajas_por_semana = horas_trabajas_por_dia*6
+
+total_de_trabajadores = random.randint(5,150)
+
+total = total_de_trabajadores * (horas_trabajas_por_semana*sueldo_por_hora)
+print(total)
+****************
 
 
 
