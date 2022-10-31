@@ -2,8 +2,7 @@
 Completed
 
 
-"""
-"""Current
+Current
 Question 1
 Level 1
 
@@ -20,7 +19,8 @@ for i in range(2000, 3201):
         l.append(str(i))
 
 print(','.join(l))
-"""
+
+
 
 lista_numeros = []
 
@@ -30,14 +30,14 @@ for i in range(200,3200):
 
 for i in lista_numeros:
     print(i," ",end="")
+***************************************
 
-
-
-"""
 Question 2
 Level 1
 
-Question: Write a program which can compute the factorial of a given numbers. The results should be printed in a comma-separated sequence on a single line. Suppose the following input is supplied to the program: 8 Then, the output should be: 40320
+Question: Write a program which can compute the factorial of a given numbers. 
+The results should be printed in a comma-separated sequence on a single line. 
+Suppose the following input is supplied to the program: 8 Then, the output should be: 40320
 
 Hints: In case of input data being supplied to the question, it should be assumed to be a console input.
 
@@ -50,12 +50,28 @@ def fact(x):
 
 x=int(input())
 print(fact(x))
+
+def factorial(num):
+    if num == 0:
+        return 1
+    else:
+        return num * factorial(num-1) 
+
+print(factorial(5))
+**************************************
 Question 3
 Level 1
 
-Question: With a given integral number n, write a program to generate a dictionary that contains (i, i*i) such that is an integral number between 1 and n (both included). and then the program should print the dictionary. Suppose the following input is supplied to the program: 8 Then, the output should be: {1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64}
+Question: With a given integral number n, write a program to generate a dictionary that contains
+ (i, i*i) such that is an integral number between 1 and n (both included). and then the program should 
+ print the dictionary. Suppose the following input is supplied to the program: 8 Then, the output should 
+ be: {1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64}
 
-Hints: In case of input data being supplied to the question, it should be assumed to be a console input. Consider use dict()
+Hints: In case of input data being supplied to the question, it should be assumed to 
+be a console input. Consider use dict()
+
+
+
 
 Solution:
 
@@ -65,12 +81,29 @@ for i in range(1,n+1):
     d[i]=i*i
 
 print(d)
+
+
+dic = {}
+
+for i in range(0, 9):
+    dic[i] = i*i
+
+
+print(dic)
+*******************************
+
 Question 4
 Level 1
 
-Question: Write a program which accepts a sequence of comma-separated numbers from console and generate a list and a tuple which contains every number. Suppose the following input is supplied to the program: 34,67,55,33,12,98 Then, the output should be: ['34', '67', '55', '33', '12', '98'] ('34', '67', '55', '33', '12', '98')
+Question: Write a program which accepts a sequence of 
+comma-separated numbers from console and generate a list and 
+a tuple which contains every number. Suppose the following input
+ is supplied to the program: 34,67,55,33,12,98 Then, the output 
+ should be: ['34', '67', '55', '33', '12', '98'] ('34', '67', '55', '33', '12', '98')
 
-Hints: In case of input data being supplied to the question, it should be assumed to be a console input. tuple() method can convert list to tuple
+Hints: In case of input data being supplied to the question,
+ it should be assumed to be a console input. tuple() method 
+ can convert list to tuple
 
 Solution:
 
@@ -79,12 +112,62 @@ l=values.split(",")
 t=tuple(l)
 print(l)
 print(t)
+
+
+
+cadena = input("introduce una cadena de texto separada por coma: ")
+
+trozos = cadena.split(",")
+
+tupla = ()
+lista = []
+
+for i in trozos:
+
+    lista.append(i)
+    tupla = tuple(lista)
+
+print(tupla, " ", lista)
+
+**************************************************
+"""
+
+
+
+
+class Ejemplo:
+    def __init__(self):
+        self.cadena = ""
+    
+    def getString(self):
+        self.cadena = input("Introduce una cadena: ")
+    
+    def printString(self):
+        print(self.cadena)
+    
+    
+
+ejemplo = Ejemplo()
+ejemplo.getString()
+ejemplo.printString() 
+
+
+
+
+"""
 Question 5
 Level 1
 
-Question: Define a class which has at least two methods: getString: to get a string from console input printString: to print the string in upper case. Also please include simple test function to test the class methods.
+Question: Define a class which has at least two methods: getString: 
+to get a string from console input printString: to print the string in upper
+ case. Also please include simple test function to test the class methods.
 
 Hints: Use init method to construct some parameters
+
+
+
+
+
 
 Solution:
 
