@@ -1,81 +1,10 @@
 from random import randint
 import math
-""" 
-Current Exercise
 """
-
-def ConvertirSegundos(h,m,s):
-    return h*3600+m*60+s
-
-def Convertir_HMS(seg):
-    h = seg/3600
-    seg = seg -h*3600
-    min = seg//60
-    seg = seg - min*60
-    s = seg
-    return h,min,s
-
-while True:
-    print("1.- Convertir a segundos.")
-    print("2.- Convertir a horas, minutos y segundos.")
-    print("3.- Salir.")
-    opcion = int(input())
-    if opcion == 1:
-        hor = int(input("Horas: "))
-        min = int(input("Minutos: "))
-        seg = int(input("Segundos: "))
-        print("Corresponde a",ConvertirSegundos(hor,min,seg)," segundos.")
-    elif opcion == 2:
-        segund = int(input("Segundos: "))
-        hor, min, seg = Convertir_HMS(segund)
-        print("Corresponde a", hor,":", min,":",seg)
-    elif opcion == 3:
-        break
-    else: 
-        print("Opcion Incorrecta")
-
-""" 
-
-
-Ejercicio 10
-Escribir dos funciones que permitan calcular:
-
-La cantidad de segundos en un tiempo dado en horas, minutos y segundos.
-La cantidad de horas, minutos y segundos de un tiempo dado en segundos.
-Escribe un programa principal con un menú donde se pueda elegir la opción de convertir a segundos, convertir a horas,minutos y segundos o salir del programa.
-
-Ejercicio 11
-El día juliano correspondiente a una fecha es un número entero que indica los días que han transcurrido desde el 1 de enero del año indicado. Queremos crear un programa principal que al introducir una fecha nos diga el día juliano que corresponde. Para ello podemos hacer las siguientes subrutinas:
-
-LeerFecha: Nos permite leer por teclado una fecha (día, mes y año).
-DiasDelMes: Recibe un mes y un año y nos dice los días de ese mes en ese año.
-EsBisiesto: Recibe un año y nos dice si es bisiesto.
-Calcular_Dia_Juliano: recibe una fecha y nos devuelve el día juliano.
-Ejercicio 12
-Vamos a mejorar el ejercicio anterior haciendo una función para validar la fecha. De tal forma que al leer una fecha se asegura que es válida.
-
-Ejercicio 13
-Queremos crear un programa que trabaje con fracciones a/b. Para representar una fracción vamos a utilizar dos enteros: numerador y denominador.
-
-Vamos a crear las siguientes funciones para trabajar con funciones:
-
-Leer_fracción: La tarea de esta función es leer por teclado el numerador y el denominador. Cuando leas una fracción debes simplificarla.
-Escribir_fracción: Esta función escribe en pantalla la fracción. Si el dominador es 1, se muestra sólo el numerador.
-Calcular_mcd: Esta función recibe dos número y devuelve el máximo común divisor.
-Simplificar_fracción: Esta función simplifica la fracción, para ello hay que dividir numerador y dominador por el MCD del numerador y denominador.
-Sumar_fracciones: Función que recibe dos funciones n1/d1 y n2/d2, y calcula la suma de las dos fracciones. La suma de dos fracciones es otra fracción cuyo numerador=n1*d2+d1*n2 y denominador=d1*d2. Se debe simplificar la fracción resultado.
-Restar_fracciones: Función que resta dos fracciones: numerador=n1*d2-d1*n2 y denominador=d1*d2. Se debe simplificar la fracción resultado.
-Multiplicar_fracciones: Función que recibe dos fracciones y calcula el producto, para ello numerador=n1*n2 y denominador=d1*d2. Se debe simplificar la fracción resultado.
-Dividir_fracciones: Función que recibe dos fracciones y calcula el cociente, para ello numerador=n1*d2 y denominador=d1*n2. Se debe simplificar la fracción resultado.
-Crear un programa que utilizando las funciones anteriores muestre el siguiente menú:
-
-Sumar dos fracciones: En esta opción se piden dos fracciones y se muestra el resultado.
-Restar dos fracciones: En esta opción se piden dos fracciones y se muestra la resta.
-Multiplicar dos fracciones: En esta opción se piden dos fracciones y se muestra la producto.
-Dividir dos fracciones: En esta opción se piden dos fracciones y se muestra la cociente.
-Salir
+Current Exercises
 Ejercicio 14
-Vamos a crear un programa para trabajar con una pila. Una pila es una estructura de datos que nos permite guardar un conjunto de variables. La característica fundamental es que el último elemento que se añade al conjunto es el primero que se puede sacar.
+Vamos a crear un programa para trabajar con una pila. Una pila es una estructura de datos que nos permite guardar un conjunto de variables.
+La característica fundamental es que el último elemento que se añade al conjunto es el primero que se puede sacar.
 
 Para representar una pila vamos a utilizar una lista de cadenas de caracteres.
 
@@ -94,6 +23,64 @@ Sacar elemento de la pila
 Longitud de la pila
 Mostrar pila
 Salir
+"""
+
+
+lista = []
+
+def Longitud_Pila(lista):
+    return len(lista)
+
+def EstaVaciaPila(lista):
+    if len(lista) == 0:
+        return True
+    else: return False
+
+def EstaLlenaPila(lista):
+    if len(lista) == 15:
+        return True
+    else: False
+
+def AddPila(cadena, lista):
+    if EstaLlenaPila(lista):
+        return "La pila esta llena"
+    else: 
+        return lista.append(cadena)
+
+def SacarDePila(cadena, lista):
+    if EstaVaciaPila(lista):
+        return "La pila esta vacia"
+    else:
+        lista.remove(cadena)
+
+cadena = "CARLOS"
+
+
+
+def MostrarPila(lista):
+    if EstaVaciaPila(lista):
+        return "La pila esta vacia"
+    else:
+        for i in lista:
+            print(i)
+
+
+
+
+AddPila(cadena, lista)
+
+print(lista)
+
+SacarDePila(cadena,lista)
+
+print(len(lista))
+
+
+
+
+
+
+"""
 Ejercicio 15
 Vamos a realizar un programa similar al anterior para trabajar con una cola. Una cola es una estructura de datos que nos permite guardar un conjunto de variables. La característica fundamental es que el primer elemento que se añade al conjunto es el primero que se puede sacar.
 
@@ -282,8 +269,193 @@ def CalcularMCD(num1, num2):
 numero1 = int(input("Introduce el numero uno: "))
 numero2 = int(input("introduce el numero dos: "))
 print("MCD: ", CalcularMCD(numero1, numero2))
-
-
 *******************************
 
+
+
+Ejercicio 10
+Escribir dos funciones que permitan calcular:
+
+La cantidad de segundos en un tiempo dado en horas, minutos y segundos.
+La cantidad de horas, minutos y segundos de un tiempo dado en segundos.
+Escribe un programa principal con un menú donde se pueda elegir la opción de convertir a segundos, convertir a horas,minutos y segundos o salir del programa.
+
+
+def ConvertirSegundos(h,m,s):
+    return h*3600+m*60+s
+
+def Convertir_HMS(seg):
+    h = seg/3600
+    seg = seg -h*3600
+    min = seg//60
+    seg = seg - min*60
+    s = seg
+    return h,min,s
+
+while True:
+    print("1.- Convertir a segundos.")
+    print("2.- Convertir a horas, minutos y segundos.")
+    print("3.- Salir.")
+    opcion = int(input())
+    if opcion == 1:
+        hor = int(input("Horas: "))
+        min = int(input("Minutos: "))
+        seg = int(input("Segundos: "))
+        print("Corresponde a",ConvertirSegundos(hor,min,seg)," segundos.")
+    elif opcion == 2:
+        segund = int(input("Segundos: "))
+        hor, min, seg = Convertir_HMS(segund)
+        print("Corresponde a", hor,":", min,":",seg)
+    elif opcion == 3:
+        break
+    else: 
+        print("Opcion Incorrecta")
+*****************************
+Ejercicio 11
+El día juliano correspondiente a una fecha es un número entero que indica los días que han
+ transcurrido desde el 1 de enero del año indicado. Queremos crear un programa principal que 
+ al introducir una fecha nos diga el día juliano que corresponde. Para ello podemos hacer las siguientes subrutinas:
+
+LeerFecha: Nos permite leer por teclado una fecha (día, mes y año).
+DiasDelMes: Recibe un mes y un año y nos dice los días de ese mes en ese año.
+EsBisiesto: Recibe un año y nos dice si es bisiesto.
+Calcular_Dia_Juliano: recibe una fecha y nos devuelve el día juliano.
+
+
+try:
+    fecha = input("Introduce una fecha (##/##/####): ")
+
+    trozos = fecha.split("/")
+    dia = trozos[0]
+    mes = trozos[1]
+    anio = trozos[2]
+except:
+    print("ERROR")
+
+
+
+
+def bisiesto(anio):
+    if anio % 4 == 0 and anio %100==0 and anio % 400 ==0:
+        return True
+    else: return False
+
+
+
+def Dias_Mes(mes, anio):
+    if mes == 1:
+        return 31
+    elif mes == 2:
+        if bisiesto(anio):
+            return 29
+        else:
+            return 29
+    elif mes == 3:
+        return 31
+    elif mes == 4:
+        return 30
+    elif mes == 5:
+        return 31
+    elif mes == 6:
+        return 30
+    elif mes == 7:
+        return 31
+    elif mes == 8:
+        return 31
+    elif mes == 9:
+        return 30
+    elif mes == 10:
+        return 31
+    elif mes == 11:
+        return 30
+    elif mes == 12:
+        return 31
+    else:
+        return "Introduce un mes correcto."
+print(Dias_Mes(2, 2016))
+
+
+def CalcularDiaJuliano(anio, mes, dia):
+    
+    total_dias = dia
+    for i in range(1,mes+1):
+        total_dias+=Dias_Mes(i, anio)
+    return total_dias
+
+print(CalcularDiaJuliano(2008, 2,0))
+**********************************
+Ejercicio 12
+Vamos a mejorar el ejercicio anterior haciendo una función para validar la fecha. De tal forma que al leer una fecha se asegura que es válida.
+*****************************************
+Current Exercise
+Ejercicio 13
+Queremos crear un programa que trabaje con fracciones a/b. 
+Para representar una fracción vamos a utilizar dos enteros: numerador y denominador.
+
+Vamos a crear las siguientes funciones para trabajar con funciones:
+
+Leer_fracción: La tarea de esta función es leer por teclado el numerador y el denominador. Cuando leas una fracción debes simplificarla.
+Escribir_fracción: Esta función escribe en pantalla la fracción. Si el dominador es 1,
+ se muestra sólo el numerador.
+Calcular_mcd: Esta función recibe dos número y devuelve el máximo común divisor.
+Simplificar_fracción: Esta función simplifica la fracción, para ello hay que dividir numerador y dominador por el MCD del numerador y denominador.
+
+Restar_fracciones: Función que resta dos fracciones: Se debe simplificar la fracción resultado.
+
+Multiplicar_fracciones: Función que recibe dos fracciones y calcula el producto, para ello numerador=n1*n2 y denominador=d1*d2.
+ Se debe simplificar la fracción resultado.
+Dividir_fracciones: Función que recibe dos fracciones y calcula el cociente, para ello numerador=n1*d2 y denominador=d1*n2. Se debe simplificar la fracción resultado.
+Crear un programa que utilizando las funciones anteriores muestre el siguiente menú:
+
+Sumar dos fracciones: En esta opción se piden dos fracciones y se muestra el resultado.
+Restar dos fracciones: En esta opción se piden dos fracciones y se muestra la resta.
+Multiplicar dos fracciones: En esta opción se piden dos fracciones y se muestra la producto.
+Dividir dos fracciones: En esta opción se piden dos fracciones y se muestra la cociente.
+Salir
+
+Sumar_fracciones: Función que recibe dos funciones n1/d1 y n2/d2, y calcula la suma de las dos fracciones. La suma de dos fracciones es otra 
+fracción cuyo numerador=n1*d2+d1*n2 y denominador=d1*d2. Se debe simplificar la fracción resultado.
+
+def Leer_Fraccion():
+    numerador = int(input("Introduzca el numerador: "))
+    denominador = int(input("Introduzca el denominador: "))
+    return numerador, denominador
+
+def Mostrar_Fraccion(numerador, denominador):
+    if denominador == 1:
+        return numerador
+    else:
+        return numerador,"/",denominador
+
+def Intercambiar(num1, num2):
+    if num1<num2:
+        return num2, num1
+    else: return num1, num2
+
+def CalcularMCD(num1, num2):
+    num1, num2 = Intercambiar(num1, num2)
+    resto = num1 % num2
+    if resto == 0: return num2
+    else: return CalcularMCD(num2, resto)
+
+def Simplificar_Fraccion(numerador, denominador):
+    MCD = CalcularMCD(numerador, denominador)
+    numerador = numerador/MCD
+    denominador = denominador/MCD
+    return numerador, denominador
+
+def Sumar_Fracciones(n1, n2, d1,d2):
+    n_total = n1+n2
+    d_total = d1+d2
+    return  n_total, d_total
+
+def Restar_Fracciones(n1,n2,d1,d2):
+    valor_numerador = (n1*d2) - (d1,n2)
+    valor_denomindor = d1*d2
+    return valor_numerador, valor_denomindor
+
+def Multiplicar_Fracciones(n1,n2,d1,d2):
+    numerador = n1 * n2
+    denominador = d1 * d2
+    return Simplificar_Fraccion(numerador, denominador)
 """
