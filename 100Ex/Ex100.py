@@ -1,309 +1,37 @@
 import random 
 import math
 
-"""
-Completed
 
+# 15
 
-Current
-Question 1
-Level 1
+cadena = input("Introduce una cadena de texto: ")
+candena_dividida = cadena.split(" ")
+candena_dividida.sort()
+print(candena_dividida)
 
-Question: Write a program which will find all such numbers which are divisible by 7 but are not a multiple of 5, 
-between 2000 and 3200 (both included). The numbers obtained should be printed in a comma-separated sequence on a single line.
-
-Hints: Consider use range(#begin, #end) method
-
-Solution:
-
-l=[]
-for i in range(2000, 3201):
-    if (i%7==0) and (i%5!=0):
-        l.append(str(i))
-
-print(','.join(l))
-
-
-
-lista_numeros = []
-
-for i in range(200,3200):
-    if i%7==0 and i%5==0:
-        lista_numeros.append(i)
-
-for i in lista_numeros:
-    print(i," ",end="")
-***************************************
-
-Question 2
-Level 1
-
-Question: Write a program which can compute the factorial of a given numbers. 
-The results should be printed in a comma-separated sequence on a single line. 
-Suppose the following input is supplied to the program: 8 Then, the output should be: 40320
-
-Hints: In case of input data being supplied to the question, it should be assumed to be a console input.
-
-Solution:
-
-def fact(x):
-    if x == 0:
-        return 1
-    return x * fact(x - 1)
-
-x=int(input())
-print(fact(x))
-
-def factorial(num):
-    if num == 0:
-        return 1
-    else:
-        return num * factorial(num-1) 
-
-print(factorial(5))
-**************************************
-Question 3
-Level 1
-
-Question: With a given integral number n, write a program to generate a dictionary that contains
- (i, i*i) such that is an integral number between 1 and n (both included). and then the program should 
- print the dictionary. Suppose the following input is supplied to the program: 8 Then, the output should 
- be: {1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64}
-
-Hints: In case of input data being supplied to the question, it should be assumed to 
-be a console input. Consider use dict()
-
-
-
-
-Solution:
-
-n=int(input())
-d=dict()
-for i in range(1,n+1):
-    d[i]=i*i
-
-print(d)
-
-
-dic = {}
-
-for i in range(0, 9):
-    dic[i] = i*i
-
-
-print(dic)
-*******************************
-
-Question 4
-Level 1
-
-Question: Write a program which accepts a sequence of 
-comma-separated numbers from console and generate a list and 
-a tuple which contains every number. Suppose the following input
- is supplied to the program: 34,67,55,33,12,98 Then, the output 
- should be: ['34', '67', '55', '33', '12', '98'] ('34', '67', '55', '33', '12', '98')
-
-Hints: In case of input data being supplied to the question,
- it should be assumed to be a console input. tuple() method 
- can convert list to tuple
-
-Solution:
-
-values=input()
-l=values.split(",")
-t=tuple(l)
-print(l)
-print(t)
-
-
-
-cadena = input("introduce una cadena de texto separada por coma: ")
-
-trozos = cadena.split(",")
-
-tupla = ()
-lista = []
-
-for i in trozos:
-
-    lista.append(i)
-    tupla = tuple(lista)
-
-print(tupla, " ", lista)
-
-**************************************************
-
-Question 5
-Level 1
-
-Question: Define a class which has at least two methods: getString: 
-to get a string from console input printString: to print the string in upper
- case. Also please include simple test function to test the class methods.
-
-Hints: Use init method to construct some parameters
-Solution:
-
-class InputOutString(object):
-    def __init__(self):
-        self.s = ""
-
-    def getString(self):
-        self.s = input()
-    
-    def printString(self):
-        print(self.s.upper())
-
-strObj = InputOutString()
-strObj.getString()
-strObj.printString()
-
-class Ejemplo:
-    def __init__(self):
-        self.cadena = ""
-    
-    def getString(self):
-        self.cadena = input("Introduce una cadena: ")
-    
-    def printString(self):
-        print(self.cadena)
-    
-
-ejemplo = Ejemplo()
-ejemplo.getString()
-ejemplo.printString() 
-
-***********************************
-
-Question 6
-Level 2
-
-Question: Write a program that calculates and prints the value according to the given formula: Q = Square root of [(2 * C * D)/H] 
-Following are the fixed values of C and H: C is 50. H is 30. D is the variable whose values should be input to your program in a 
-comma-separated sequence. Example Let us assume the following comma separated input sequence is given to the program: 100,150,180
- The output of the program should be: 18,22,24
-
-Hints: If the output received is in decimal form, it should be rounded off to its nearest value (for example, if the output 
-received is 26.0, it should be printed as 26) In case of input data being supplied to the question, it should be assumed to be a console input.
-
-def calcular(num):
-    c = 50
-    h = 30
-    return int(math.sqrt((2*c*num)/h))
-
-lista = [100,150,180]
-nueva_lista = []
-for num in lista:
-    nueva_lista.append(calcular(num))
-
-for i in nueva_lista:
-    print(i)
-
-Solution:
-
-import math
-c=50
-h=30
-value = []
-items=[x for x in input().split(',')]
-for d in items:
-    value.append(str(int(round(math.sqrt(2*c*float(d)/h)))))
-
-print(','.join(value))
-***********************
-Question 7
-Level 2
-
-Question: Write a program which takes 2 digits, X,Y
- as input and generates a 2-dimensional array. 
- The element value in the i-th row and j-th column 
- of the array should be i*j. Note: i=0,1.., X-1; j=0,1,¡­Y-1. 
- Example Suppose the following inputs are given to the program: 3,5 
- Then, the output of the program should be: [[0, 0, 0, 0, 0], [0, 1, 2, 3, 4], [0, 2, 4, 6, 8]]
-
-Hints: Note: In case of input data being supplied to the question,
- it should be assumed to be a console input in a comma-separated form.
-
-Solution:
-
-input_str = input()
-dimensions=[int(x) for x in input_str.split(',')]
-rowNum=dimensions[0]
-colNum=dimensions[1]
-multilist = [[0 for col in range(colNum)] for row in range(rowNum)]
-
-for row in range(rowNum):
-    for col in range(colNum):
-        multilist[row][col]= row*col
-
-print(multilist)
-
-x = 3
-y = 5
-
-lista = []
-
-for i in range(0,x):
-    nueva_lista = []
-    for i in range(0,y):
-        nueva_lista.append(random.randint(0,150))
-    lista.append(nueva_lista)
-
-print(lista)
-"""
-
-cadena = input("Introduce una cadena separada por comas: ")
-trozos = cadena.split(",")
-trozos.sort()
-print(trozos)
 
 
 """
-Question 8
-Level 2
-
-Question: Write a program that accepts a comma separated sequence of words as
- input and prints the words in a comma-separated sequence after sorting them 
- alphabetically. Suppose the following input is supplied to the program: without,hello,bag,world Then, the output should 
- be: bag,hello,without,world
-
-Hints: In case of input data being supplied to the question, it should be
- assumed to be a console input.
 
 
-
-
-
-Solution:
-
-items=[x for x in input().split(',')]
-items.sort()
-print(','.join(items))
-Question 9
-Level 2
-
-Question£º Write a program that accepts sequence of lines as input and prints the lines after making all characters in the sentence capitalized. Suppose the following input is supplied to the program: Hello world Practice makes perfect Then, the output should be: HELLO WORLD PRACTICE MAKES PERFECT
-
-Hints: In case of input data being supplied to the question, it should be assumed to be a console input.
-
-Solution:
-
-lines = []
-while True:
-    s = input()
-    if s:
-        lines.append(s.upper())
-    else:
-        break;
-
-for sentence in lines:
-    print(sentence)
 Question 10
 Level 2
 
-Question: Write a program that accepts a sequence of whitespace separated words as input and prints the words after removing all duplicate words and sorting them alphanumerically. Suppose the following input is supplied to the program: hello world and practice makes perfect and hello world again Then, the output should be: again and hello makes perfect practice world
+Question: Write a program that accepts a sequence of whitespace separated words as input and prints the words after 
+removing all duplicate words and sorting them alphanumerically. Suppose the following input is supplied to the program: 
+hello world and practice makes perfect and hello world again Then, the output should be: again and hello makes perfect practice world
 
-Hints: In case of input data being supplied to the question, it should be assumed to be a console input. We use set container to remove duplicated data automatically and then use sorted() to sort the data.
+Hints: In case of input data being supplied to the question, it should be assumed to be a console input. 
+We use set container to remove duplicated data automatically and then use sorted() to sort the data.
+
+
+
+
+
+
+
+
+
 
 Solution:
 
@@ -1786,4 +1514,323 @@ def solve(numheads,numlegs):
         if 2*i+4*j==numlegs:
             return i,j
     return ns,ns
+"""
+
+
+"""
+Completed
+
+
+Current
+Question 1
+Level 1
+
+Question: Write a program which will find all such numbers which are divisible by 7 but are not a multiple of 5, 
+between 2000 and 3200 (both included). The numbers obtained should be printed in a comma-separated sequence on a single line.
+
+Hints: Consider use range(#begin, #end) method
+
+Solution:
+
+l=[]
+for i in range(2000, 3201):
+    if (i%7==0) and (i%5!=0):
+        l.append(str(i))
+
+print(','.join(l))
+
+
+
+lista_numeros = []
+
+for i in range(200,3200):
+    if i%7==0 and i%5==0:
+        lista_numeros.append(i)
+
+for i in lista_numeros:
+    print(i," ",end="")
+***************************************
+
+Question 2
+Level 1
+
+Question: Write a program which can compute the factorial of a given numbers. 
+The results should be printed in a comma-separated sequence on a single line. 
+Suppose the following input is supplied to the program: 8 Then, the output should be: 40320
+
+Hints: In case of input data being supplied to the question, it should be assumed to be a console input.
+
+Solution:
+
+def fact(x):
+    if x == 0:
+        return 1
+    return x * fact(x - 1)
+
+x=int(input())
+print(fact(x))
+
+def factorial(num):
+    if num == 0:
+        return 1
+    else:
+        return num * factorial(num-1) 
+
+print(factorial(5))
+**************************************
+Question 3
+Level 1
+
+Question: With a given integral number n, write a program to generate a dictionary that contains
+ (i, i*i) such that is an integral number between 1 and n (both included). and then the program should 
+ print the dictionary. Suppose the following input is supplied to the program: 8 Then, the output should 
+ be: {1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64}
+
+Hints: In case of input data being supplied to the question, it should be assumed to 
+be a console input. Consider use dict()
+
+
+
+
+Solution:
+
+n=int(input())
+d=dict()
+for i in range(1,n+1):
+    d[i]=i*i
+
+print(d)
+
+
+dic = {}
+
+for i in range(0, 9):
+    dic[i] = i*i
+
+
+print(dic)
+*******************************
+
+Question 4
+Level 1
+
+Question: Write a program which accepts a sequence of 
+comma-separated numbers from console and generate a list and 
+a tuple which contains every number. Suppose the following input
+ is supplied to the program: 34,67,55,33,12,98 Then, the output 
+ should be: ['34', '67', '55', '33', '12', '98'] ('34', '67', '55', '33', '12', '98')
+
+Hints: In case of input data being supplied to the question,
+ it should be assumed to be a console input. tuple() method 
+ can convert list to tuple
+
+Solution:
+
+values=input()
+l=values.split(",")
+t=tuple(l)
+print(l)
+print(t)
+
+
+
+cadena = input("introduce una cadena de texto separada por coma: ")
+
+trozos = cadena.split(",")
+
+tupla = ()
+lista = []
+
+for i in trozos:
+
+    lista.append(i)
+    tupla = tuple(lista)
+
+print(tupla, " ", lista)
+
+**************************************************
+
+Question 5
+Level 1
+
+Question: Define a class which has at least two methods: getString: 
+to get a string from console input printString: to print the string in upper
+ case. Also please include simple test function to test the class methods.
+
+Hints: Use init method to construct some parameters
+Solution:
+
+class InputOutString(object):
+    def __init__(self):
+        self.s = ""
+
+    def getString(self):
+        self.s = input()
+    
+    def printString(self):
+        print(self.s.upper())
+
+strObj = InputOutString()
+strObj.getString()
+strObj.printString()
+
+class Ejemplo:
+    def __init__(self):
+        self.cadena = ""
+    
+    def getString(self):
+        self.cadena = input("Introduce una cadena: ")
+    
+    def printString(self):
+        print(self.cadena)
+    
+
+ejemplo = Ejemplo()
+ejemplo.getString()
+ejemplo.printString() 
+
+***********************************
+
+Question 6
+Level 2
+
+Question: Write a program that calculates and prints the value according to the given formula: Q = Square root of [(2 * C * D)/H] 
+Following are the fixed values of C and H: C is 50. H is 30. D is the variable whose values should be input to your program in a 
+comma-separated sequence. Example Let us assume the following comma separated input sequence is given to the program: 100,150,180
+ The output of the program should be: 18,22,24
+
+Hints: If the output received is in decimal form, it should be rounded off to its nearest value (for example, if the output 
+received is 26.0, it should be printed as 26) In case of input data being supplied to the question, it should be assumed to be a console input.
+
+def calcular(num):
+    c = 50
+    h = 30
+    return int(math.sqrt((2*c*num)/h))
+
+lista = [100,150,180]
+nueva_lista = []
+for num in lista:
+    nueva_lista.append(calcular(num))
+
+for i in nueva_lista:
+    print(i)
+
+Solution:
+
+import math
+c=50
+h=30
+value = []
+items=[x for x in input().split(',')]
+for d in items:
+    value.append(str(int(round(math.sqrt(2*c*float(d)/h)))))
+
+print(','.join(value))
+***********************
+Question 7
+Level 2
+
+Question: Write a program which takes 2 digits, X,Y
+ as input and generates a 2-dimensional array. 
+ The element value in the i-th row and j-th column 
+ of the array should be i*j. Note: i=0,1.., X-1; j=0,1,¡­Y-1. 
+ Example Suppose the following inputs are given to the program: 3,5 
+ Then, the output of the program should be: [[0, 0, 0, 0, 0], [0, 1, 2, 3, 4], [0, 2, 4, 6, 8]]
+
+Hints: Note: In case of input data being supplied to the question,
+ it should be assumed to be a console input in a comma-separated form.
+
+Solution:
+
+input_str = input()
+dimensions=[int(x) for x in input_str.split(',')]
+rowNum=dimensions[0]
+colNum=dimensions[1]
+multilist = [[0 for col in range(colNum)] for row in range(rowNum)]
+
+for row in range(rowNum):
+    for col in range(colNum):
+        multilist[row][col]= row*col
+
+print(multilist)
+
+x = 3
+y = 5
+
+lista = []
+
+for i in range(0,x):
+    nueva_lista = []
+    for i in range(0,y):
+        nueva_lista.append(random.randint(0,150))
+    lista.append(nueva_lista)
+
+print(lista)
+
+cadena = input("Introduce una cadena separada por comas: ")
+trozos = cadena.split(",")
+trozos.sort()
+print(trozos)
+*******************************
+
+Question 8
+Level 2
+
+Question: Write a program that accepts a comma separated sequence of words as
+ input and prints the words in a comma-separated sequence after sorting them 
+ alphabetically. Suppose the following input is supplied to the program: without,hello,bag,world Then, the output should 
+ be: bag,hello,without,world
+
+Hints: In case of input data being supplied to the question, it should be
+ assumed to be a console input.
+
+cadena = input("Introduce una cadena de palabras separadas por comas: ")
+cadena_dividida = cadena.split(",")
+cadena_dividida.sort()
+print(cadena_dividida)
+
+
+
+Solution:
+
+items=[x for x in input().split(',')]
+items.sort()
+print(','.join(items))
+
+*******************************
+Question 9
+Level 2
+
+Question£º Write a program that accepts sequence of lines as input and prints the lines after making 
+all characters in the sentence capitalized. Suppose the following input is supplied to the program: Hello world
+Practice makes perfect Then, the output should be: HELLO WORLD PRACTICE MAKES PERFECT
+
+Hints: In case of input data being supplied to the question, it should be assumed to be a console input.
+
+
+
+cadena = input("Introduce una cadena: ")
+lista = []
+
+while True:
+    if cadena =="": break
+    lista.append(cadena.upper()+" PRACTICE MAKES PERFECT")
+    cadena = input("Introduce una cadena: ")
+
+print(lista)
+    
+
+Solution:
+
+lines = []
+while True:
+    s = input()
+    if s:
+        lines.append(s.upper())
+    else:
+        break;
+
+for sentence in lines:
+    print(sentence)
+*******************************
 """
