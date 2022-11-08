@@ -2,48 +2,35 @@ import random
 import math
 
 
-# 15
 
-cadena = input("Introduce una cadena de texto: ")
-candena_dividida = cadena.split(" ")
-candena_dividida.sort()
-print(candena_dividida)
+
+
+    
+    
+
 
 
 
 """
 
-
-Question 10
-Level 2
-
-Question: Write a program that accepts a sequence of whitespace separated words as input and prints the words after 
-removing all duplicate words and sorting them alphanumerically. Suppose the following input is supplied to the program: 
-hello world and practice makes perfect and hello world again Then, the output should be: again and hello makes perfect practice world
-
-Hints: In case of input data being supplied to the question, it should be assumed to be a console input. 
-We use set container to remove duplicated data automatically and then use sorted() to sort the data.
-
-
-
-
-
-
-
-
-
-
-Solution:
-
-s = input()
-words = [word for word in s.split(" ")]
-print(" ".join(sorted(list(set(words)))))
 Question 11
 Level 2
 
-Question: Write a program which accepts a sequence of comma separated 4 digit binary numbers as its input and then check whether they are divisible by 5 or not. The numbers that are divisible by 5 are to be printed in a comma separated sequence. Example: 0100,0011,1010,1001 Then the output should be: 1010 Notes: Assume the data is input by console.
+Question: Write a program which accepts a sequence of comma separated 4 digit binary 
+numbers as its input and then check whether they are divisible by 5 or not. The numbers
+that are divisible by 5 are to be printed in a comma separated sequence. Example: 0100,0011,1010,1001 
+Then the output should be: 1010 Notes: Assume the data is input by console.
 
 Hints: In case of input data being supplied to the question, it should be assumed to be a console input.
+
+
+
+
+
+
+
+
+
 
 Solution:
 
@@ -1833,4 +1820,40 @@ while True:
 for sentence in lines:
     print(sentence)
 *******************************
+
+Question 10
+Level 2
+
+Question: Write a program that accepts a sequence of whitespace separated words as input and prints the words after 
+removing all duplicate words and sorting them alphanumerically. Suppose the following input is supplied to the program: 
+hello world and practice makes perfect and hello world again Then, the output should be: again and hello makes perfect practice world
+
+Hints: In case of input data being supplied to the question, it should be assumed to be a console input. 
+We use set container to remove duplicated data automatically and then use sorted() to sort the data.
+
+
+
+
+list = []
+
+cadena = input("introduce una cadena: ")
+
+while True:
+    if cadena == "": break
+    if cadena not in  list: list.append(cadena)
+    list.sort()
+    cadena = input("introduce una cadena: ")
+    
+print(list)
+
+
+
+
+
+
+Solution:
+
+s = input()
+words = [word for word in s.split(" ")]
+print(" ".join(sorted(list(set(words)))))
 """
