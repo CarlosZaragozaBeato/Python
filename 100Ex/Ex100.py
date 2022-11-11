@@ -1,46 +1,17 @@
 import random 
 import math
 
-
+    
 
 
 
 
 """
-### Question 33
-Define a function which can print a dictionary where the keys are numbers between 1 and 3 (both included) and the values are square of keys.
 
-Hints:
+    
 
-Use dict[key]=value pattern to put entry into a dictionary.
-Use ** operator to get power of a number.
 
-Solution
-​```python
-def printDict():
-    d=dict()
-    d[1]=1
-    d[2]=2**2
-    d[3]=3**2
-    print(d)
-        
-printDict()
-Question 34
-Define a function which can print a dictionary where the keys are numbers between 1 and 20 (both included) and the values are square of keys.
 
-Hints:
-
-Use dict[key]=value pattern to put entry into a dictionary. Use ** operator to get power of a number. Use range() for loops.
-
-Solution
-
-def printDict():
-	d=dict()
-	for i in range(1,21):
-		d[i]=i**2
-	print(d)
-
-printDict()
 Question 35
 Define a function which can generate a dictionary where the keys are numbers between 1 and 20 (both included) and the values are square of keys. The function should just print the values only.
 
@@ -1895,5 +1866,38 @@ def EvenOrOdd():
     else:return "The number is odd"
     
 print(EvenOrOdd())
+*******************************
+### Question 33
+Define a function which can print a dictionary where the keys are numbers between 1 and 3 (both included) and the values are square of keys.
 
+Hints:
+
+Use dict[key]=value pattern to put entry into a dictionary.
+Use ** operator to get power of a number.
+
+
+def GenerateDictionary():
+    dictionary = {}
+    for i in range(0,4):
+        dictionary[i] = math.pow(i,2)
+    return dictionary
+
+for key, val in GenerateDictionary().items():
+    print(f"{key} : {val}")
+*******************************
+Question 34
+Define a function which can print a dictionary where the keys are numbers between 1 and 20 (both included) and the values are square of keys.
+
+Hints:
+
+Use dict[key]=value pattern to put entry into a dictionary. Use ** operator to get power of a number. Use range() for loops.
+
+def DobleKeys():
+    dictionary = {}
+    for i in range(0,21):
+        dictionary[i] = i**2
+    return dictionary
+
+for key, value in DobleKeys().items():
+    print(f"{key} : {value}")
 """
