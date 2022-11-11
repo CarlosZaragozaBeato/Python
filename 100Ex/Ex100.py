@@ -2,306 +2,15 @@ import random
 import math
 
 
-accion = input("Introduce una opcion (D, W)")
-quantity = int(input("Introduce the corresponding quantity: "))
-amount = 0
-while True:
 
-    if accion =="":break
-    elif amount>0 and int(quantity)<=amount and accion.upper() == "W": 
-        amount-= int(quantity)
-    elif accion.upper() == "D":
-        amount += int(quantity)
-    accion = input("Introduce una opcion (D, W)")
-    quantity = input("Introduce the corresponding quantity: ")
-print(amount)
+
+
 
 
 """
 
+print(Concatenate("Hello", "World"))
 
-
-
-Question 17
-Level 2
-
-Question: Write a program that computes the net amount of a bank account based a transaction log from console input.
-The transaction log format is shown as following: D 100 W 200
-
-D means deposit while W means withdrawal. Suppose the following input is supplied to the program:
-D 300 D 300 W 200 D 100 Then, the output should be: 500
-
-Hints: In case of input data being supplied to the question, it should be assumed to be a console input.
-
-Solutio
-
-
-
-n:
-
-netAmount = 0
-while True:
-    s = input()
-    if not s:
-        break
-    values = s.split(" ")
-    operation = values[0]
-    amount = int(values[1])
-    if operation=="D":
-        netAmount+=amount
-    elif operation=="W":
-        netAmount-=amount
-    else:
-        pass
-print(netAmount)
-Question 18
-Level 3
-
-Question: A website requires the users to input username and password to register. Write a program to check the validity of password input by users. Following are the criteria for checking the password:
-
-At least 1 letter between [a-z]
-At least 1 number between [0-9]
-At least 1 letter between [A-Z]
-At least 1 character from [$#@]
-Minimum length of transaction password: 6
-Maximum length of transaction password: 12 Your program should accept a sequence of comma separated passwords and will check them according to the above criteria. Passwords that match the criteria are to be printed, each separated by a comma. Example If the following passwords are given as input to the program: ABd1234@1,a F1#,2w3E*,2We3345 Then, the output of the program should be: ABd1234@1
-Hints: In case of input data being supplied to the question, it should be assumed to be a console input.
-
-Solutions:
-
-import re
-value = []
-items=[x for x in input().split(',')]
-for p in items:
-    if len(p)<6 or len(p)>12:
-        continue
-    else:
-        pass
-    if not re.search("[a-z]",p):
-        continue
-    elif not re.search("[0-9]",p):
-        continue
-    elif not re.search("[A-Z]",p):
-        continue
-    elif not re.search("[$#@]",p):
-        continue
-    elif re.search("\s",p):
-        continue
-    else:
-        pass
-    value.append(p)
-print(",".join(value))
-Question 19
-Level 3
-
-Question: You are required to write a program to sort the (name, age, height) tuples by ascending order where name is string, age and height are numbers. The tuples are input by console. The sort criteria is: 1: Sort based on name; 2: Then sort based on age; 3: Then sort by score. The priority is that name > age > score. If the following tuples are given as input to the program: Tom,19,80 John,20,90 Jony,17,91 Jony,17,93 Json,21,85 Then, the output of the program should be: [('John', '20', '90'), ('Jony', '17', '91'), ('Jony', '17', '93'), ('Json', '21', '85'), ('Tom', '19', '80')]
-
-Hints: In case of input data being supplied to the question, it should be assumed to be a console input. We use itemgetter to enable multiple sort keys.
-
-Solutions: from operator import itemgetter, attrgetter
-
-l = []
-while True:
-    s = input()
-    if not s:
-        break
-    l.append(tuple(s.split(",")))
-
-print(sorted(l, key=itemgetter(0,1,2)))
-Question 20
-Level 3
-
-Question: Define a class with a generator which can iterate the numbers, which are divisible by 7, between a given range 0 and n.
-
-Hints: Consider use yield
-
-Solution:
-
-def putNumbers(n):
-    i = 0
-    while i<n:
-        j=i
-        i=i+1
-        if j%7==0:
-            yield j
-
-for i in reverse(100):
-    print(i)
-Question 21
-Level 3
-
-Question A robot moves in a plane starting from the original point (0,0). The robot can move toward UP, DOWN, LEFT and RIGHT with a given steps. The trace of robot movement is shown as the following: UP 5 DOWN 3 LEFT 3 RIGHT 2 ¡­ The numbers after the direction are steps. Please write a program to compute the distance from current position after a sequence of movement and original point. If the distance is a float, then just print the nearest integer. Example: If the following tuples are given as input to the program: UP 5 DOWN 3 LEFT 3 RIGHT 2 Then, the output of the program should be: 2
-
-Hints: In case of input data being supplied to the question, it should be assumed to be a console input.
-
-Solution:
-
-import math
-pos = [0,0]
-while True:
-    s = input()
-    if not s:
-        break
-    movement = s.split(" ")
-    direction = movement[0]
-    steps = int(movement[1])
-    if direction=="UP":
-        pos[0]+=steps
-    elif direction=="DOWN":
-        pos[0]-=steps
-    elif direction=="LEFT":
-        pos[1]-=steps
-    elif direction=="RIGHT":
-        pos[1]+=steps
-    else:
-        pass
-
-print(int(round(math.sqrt(pos[1]**2+pos[0]**2))))
-Question 22
-Level 3
-
-Question: Write a program to compute the frequency of the words from the input. The output should output after sorting the key alphanumerically. Suppose the following input is supplied to the program: New to Python or choosing between Python 2 and Python 3? Read Python 2 or Python 3. Then, the output should be: 2:2 3.:1 3?:1 New:1 Python:5 Read:1 and:1 between:1 choosing:1 or:2 to:1
-
-Hints In case of input data being supplied to the question, it should be assumed to be a console input.
-
-Solution:
-
-freq = {}   # frequency of words in text
-line = input()
-for word in line.split():
-    freq[word] = freq.get(word,0)+1
-
-words = freq.keys()
-words.sort()
-
-for w in words:
-    print("%s:%d" % (w,freq[w]))
-Question 23
-level 1
-
-Question: Write a method which can calculate square value of number
-
-Hints: Using the ** operator
-
-Solution:
-
-def square(num):
-    return num ** 2
-
-print(square(2))
-print(square(3))
-Question 24
-Level 1
-
-Question:
-
-Python has many built-in functions, and if you do not know how to use it, you can read document online or find some books. But Python has a built-in document function for every built-in functions.
-
-Please write a program to print some Python built-in functions documents, such as abs(), int(), raw_input()
-
-And add document for your own function Hints: The built-in document method is doc
-
-Solution:
-
-print(abs.__doc__)
-print(int.__doc__)
-print(input.__doc__)
-
-def square(num):
-    '''Return the square value of the input number.
-    
-    The input number must be integer.
-    '''
-    return num ** 2
-
-print(square(2))
-print(square.__doc__)
-Question 25
-Level 1
-
-Question: Define a class, which have a class parameter and have a same instance parameter.
-
-Hints: Define a instance parameter, need add it in init method You can init a object with construct parameter or set the value later
-
-Solution:
-
-class Person:
-    # Define the class parameter "name"
-    name = "Person"
-    
-    def __init__(self, name = None):
-        # self.name is the instance parameter
-        self.name = name
-
-jeffrey = Person("Jeffrey")
-print("%s name is %s" % (Person.name, jeffrey.name))
-
-nico = Person()
-nico.name = "Nico"
-print("%s name is %s" % (Person.name, nico.name))
-Question 26:
-Define a function which can compute the sum of two numbers.
-
-Hints: Define a function with two numbers as arguments. You can compute the sum in the function and return the value.
-
-Solution
-
-def SumFunction(number1, number2):
-	return number1+number2
-
-print(SumFunction(1,2))
-Question 27
-Define a function that can convert a integer into a string and print it in console.
-
-Hints:
-
-Use str() to convert a number to string.
-
-Solution
-
-def printValue(n):
-    print(str(n))
-
-printValue(3)
-Question 28
-Define a function that can convert a integer into a string and print it in console.
-
-Hints:
-
-Use str() to convert a number to string.
-
-Solution
-
-def printValue(n):
-    print(str(n))
-
-printValue(3)
-Question 29
-Define a function that can receive two integral numbers in string form and compute their sum and then print it in console.
-
-Hints:
-
-Use int() to convert a string to integer.
-
-Solution
-
-def printValue(s1,s2):
-    print(int(s1)+int(s2))
-
-printValue("3","4")
-Question 30
-Define a function that can accept two strings as input and concatenate them and then print it in console.
-
-Hints:
-
-Use + to concatenate the strings
-
-Solution
-
-def printValue(s1,s2):
-    print(s1+s2)
-
-printValue("3","4") #34
 Question 31
 Define a function that can accept two strings as input and print the string with maximum length in console. If two strings have the same length, then the function should print al l strings line by line.
 
@@ -1892,5 +1601,307 @@ valores = input("Introduce valores separados por comas: ")
 numeros = [x for x in valores.split(",") if int(x)%2!=0]
 print(",".join(numeros))
 
+*******************************
+
+Question 17
+Level 2
+
+Question: Write a program that computes the net amount of a bank account based a transaction log from console input.
+The transaction log format is shown as following: D 100 W 200
+
+D means deposit while W means withdrawal. Suppose the following input is supplied to the program:
+D 300 D 300 W 200 D 100 Then, the output should be: 500
+
+Hints: In case of input data being supplied to the question, it should be assumed to be a console input.
+
+accion = input("Introduce una opcion (D, W)")
+quantity = int(input("Introduce the corresponding quantity: "))
+amount = 0
+while True:
+
+    if accion =="":break
+    elif amount>0 and int(quantity)<=amount and accion.upper() == "W": 
+        amount-= int(quantity)
+    elif accion.upper() == "D":
+        amount += int(quantity)
+    accion = input("Introduce una opcion (D, W)")
+    quantity = input("Introduce the corresponding quantity: ")
+print(amount)
+
+*******************************
+
+
+
+
+Question 18
+Level 3
+
+Question: A website requires the users to input username and password to register. Write a program to check the validity 
+of password input by users. Following are the criteria for checking the password:
+
+At least 1 letter between [a-z]
+At least 1 number between [0-9]
+At least 1 letter between [A-Z]
+At least 1 character from [$#@]
+Minimum length of transaction password: 6
+Maximum length of transaction password: 12 Your program should accept a sequence of comma separated passwords and will check 
+them according to the above criteria. Passwords that match the criteria are to be printed, each separated by a comma. Example If the 
+following passwords are given as input to the program: ABd1234@1,a F1#,2w3E*,2We3345 Then, the output of the program should be: ABd1234@1
+Hints: In case of input data being supplied to the question, it should be assumed to be a console input.
+
+Solutions:
+
+
+import re
+value = []
+items=[x for x in input().split(',')]
+for p in items:
+    if len(p)<6 or len(p)>12:
+        continue
+    else:
+        pass
+    if not re.search("[a-z]",p):
+        continue
+    elif not re.search("[0-9]",p):
+        continue
+    elif not re.search("[A-Z]",p):
+        continue
+    elif not re.search("[$#@]",p):
+        continue
+    elif re.search("\s",p):
+        continue
+    else:
+        pass
+    value.append(p)
+print(",".join(value))
+*******************************
+Question 19
+Level 3
+
+Question: You are required to write a program to sort the (name, age, height) tuples
+by ascending order where name is string, age and height are numbers. The tuples are input 
+by console. The sort criteria is: 1: Sort based on name; 2: Then sort based on age; 3: Then sort by score.
+The priority is that name > age > score. If the following tuples are given as input to the
+program: Tom,19,80 John,20,90 Jony,17,91 Jony,17,93 Json,21,85 Then,
+the output of the program should be: [('John', '20', '90'), ('Jony', '17', '91'), ('Jony', '17', '93'), ('Json', '21', '85'), ('Tom', '19', '80')]
+
+Hints: In case of input data being supplied to the question, it should be assumed to 
+be a console input. We use itemgetter to enable multiple sort keys.
+
+Solutions: from operator import itemgetter, attrgetter
+
+valores = []
+
+while True:
+    cadena = input("Introduce una cadena separada por comas: ")
+    if not cadena:break
+    valores.append(tuple(cadena.split(",")))
+
+print(sorted(valores))
+*******************************
+
+Question 20
+Level 3
+
+Question: Define a class with a generator which can iterate the numbers, which are divisible by 7, between a given range 0 and n.
+
+Hints: Consider use yield
+
+Solution:
+
+
+def Divisible7(number):
+    for i in range(0,number+1):
+        if i % 7 == 0:
+            yield i
+            
+for i in Divisible7(100):
+    print(i)
+        
+********************************
+
+
+Question 21
+Level 3
+
+Question A robot moves in a plane starting from the original point (0,0). The robot can move toward UP,
+DOWN, LEFT and RIGHT with a given steps. The trace of robot movement is shown as the following: UP 5 DOWN 3 
+LEFT 3 RIGHT 2 ¡­ The numbers after the direction are steps. Please write a program to compute the distance 
+from current position after a sequence of movement and original point. If the distance is a float, then just
+print the nearest integer. Example: If the following tuples are given as input to the program: UP 5 DOWN 3 LEFT 3 
+RIGHT 2 Then, the output of the program should be: 2
+
+Hints: In case of input data being supplied to the question, it should be assumed to be a console input.
+
+pos =[0,0]
+
+
+posicion = input("Introduce una direccion: (T.B/L.R) and the steps")
+
+while True:
+    
+    if not posicion:break
+    
+    steps = posicion.split(" ")[1]
+    direction = posicion.split(" ")[0]
+
+    
+    if direction.upper() == "T": pos[0]+=int(steps)
+    elif direction.upper() == "B": pos[0]-=int(steps)
+    elif direction.upper() == "R": pos[1]+=int(steps)
+    elif direction.upper() == "L": pos[1]-=int(steps)
+    else:pass
+    
+    posicion = input("Introduce una direccion: (T.B/L.R) and the steps")
+
+print(int(round(math.sqrt(pos[1]**2+pos[0]**2))))
+*******************************
+
+Question 22
+Level 3
+
+Question: Write a program to compute the frequency of the words from the input. The output should output after sorting 
+the key alphanumerically. Suppose the following input is supplied to the program: New to Python or choosing between Python 
+2 and Python 3? Read Python 2 or Python 3. Then, the output should be: 2:2 3.:1 3?:1 New:1 Python:5 Read:1 and:1 between:1 choosing:1 or:2 to:1
+
+Hints In case of input data being supplied to the question, it should be assumed to be a console input.
+
+Solution:
+
+diccionario = {}
+
+cadena_key = input("introduce los valores separados por /")
+
+while True:
+    if not cadena_key:break
+    
+    valores = cadena_key.split("/")
+    
+    diccionario[valores[0]] = valores[1]
+    cadena_key = input("introduce los valores separados por /")
+    
+print(diccionario)
+
+words = diccionario.keys()
+words.sort()
+
+for w in words:
+    print("%s:%d" % (w,diccionario[w]))
+
+*******************************
+
+Question 23
+level 1
+
+Question: Write a method which can calculate square value of number
+
+Hints: Using the ** operator
+
+Solution:
+def cuadrado(lado):
+    return lado**2
+print(cuadrado(2))
+
+*******************************
+
+Question 24
+Level 1
+
+Question:
+
+Python has many built-in functions, and if you do not know how to use it, you can read document online or find 
+some books. But Python has a built-in document function for every built-in functions.
+
+Please write a program to print some Python built-in functions documents, such as abs(), int(), raw_input()
+
+And add document for your own function Hints: The built-in document method is doc
+
+
+print(abs.__doc__)
+print(int.__doc__)
+print(input.__doc__)
+
+def square(num):
+    '''
+        Calcula el area de un cuadrado y la devuelve
+    '''
+    return num**2
+
+print(square(3))
+
+print(square.__doc__)
+*******************************
+
+
+Question 25
+Level 1
+
+Question: Define a class, which have a class parameter and have a same instance parameter.
+
+Hints: Define a instance parameter, need add it in init method You can init a object with construct parameter or set the value later
+
+class Clase:
+    valor = "Person"
+    
+    def __init__(self, name = "Carlos"):
+        self.valor = name
+        
+    def printNombre(self):
+        return f"The name of the person is {self.valor}"
+
+carlos =  Clase()
+gaucho = Clase(name = "Gaucho")
+
+
+print(carlos.printNombre())
+print(gaucho.printNombre())
+*******************************
+
+Question 26:
+Define a function which can compute the sum of two numbers.
+
+Hints: Define a function with two numbers as arguments. You can compute the sum in the function and return the value.
+
+def sumTwoNumbers(*num):
+    return num[0]+num[1]
+
+print(sumTwoNumbers(1,5))
+***********************
+
+Question 27
+Define a function that can convert a integer into a string and print it in console.
+
+Hints:
+
+Use str() to convert a number to string.
+
+Solution
+def ConvertToString(value):
+    return str(value)
+
+print(type(ConvertToString(5)))
+*******************************
+Question 29
+Define a function that can receive two integral numbers in string form and compute their sum and then print it in console.
+
+Hints:
+
+Use int() to convert a string to integer.
+
+def ConvertAndSum(*nums_strs):
+    return int(nums_strs[0]) + int(nums_strs[1])
+print(ConvertAndSum("451", "4541"))
+*******************************
+Question 30
+Define a function that can accept two strings as input and concatenate them and then print it in console.
+
+Hints:
+
+Use + to concatenate the strings
+
+Solution
+
+def Concatenate(*strs):
+    return strs[0]+" "+strs[1]
 
 """
