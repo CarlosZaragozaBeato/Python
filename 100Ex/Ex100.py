@@ -6,49 +6,7 @@ import math
 
 
 
-
 """
-
-print(Concatenate("Hello", "World"))
-
-Question 31
-Define a function that can accept two strings as input and print the string with maximum length in console. If two strings have the same length, then the function should print al l strings line by line.
-
-Hints:
-
-Use len() function to get the length of a string
-
-Solution
-
-def printValue(s1,s2):
-    len1 = len(s1)
-    len2 = len(s2)
-    if len1>len2:
-        print(s1)
-    elif len2>len1:
-        print(s2)
-    else:
-        print(s1)
-        print(s2)
-        
-printValue("one","three")
-Question 32
-Define a function that can accept an integer number as input and print the "It is an even number" if the number is even, otherwise print "It is an odd number".
-
-Hints:
-
-Use % operator to check if a number is even or odd.
-
-Solution
-
-def checkValue(n):
-    if n%2 == 0:
-        print("It is an even number")
-    else:
-        print("It is an odd number")
-        
-checkValue(7)
-
 ### Question 33
 Define a function which can print a dictionary where the keys are numbers between 1 and 3 (both included) and the values are square of keys.
 
@@ -1903,5 +1861,39 @@ Solution
 
 def Concatenate(*strs):
     return strs[0]+" "+strs[1]
+*******************************
+Question 31
+Define a function that can accept two strings as input and print the string with maximum 
+length in console. If two strings have the same length, then the function should print al l strings line by line.
+
+Hints:
+
+Use len() function to get the length of a string
+
+Solution
+
+def CompareStrings(s1,s2):
+    if len(s1)>len(s2):return s1
+    elif len(s2)>len(s1):return s2
+    elif len(s1) == len(s2):return s1 +"\n"+s2
+    
+print(CompareStrings("valor1", "valor2"))
+***********************
+Question 32
+Define a function that can accept an integer number as input and print the "It is an even number" if the number is even,
+otherwise print "It is an odd number".
+
+Hints:
+
+Use % operator to check if a number is even or odd.
+
+Solution
+
+def EvenOrOdd():
+    number = int(input("Introduce a number please: "))
+    if number%2 == 0 :return  "The number is even"
+    else:return "The number is odd"
+    
+print(EvenOrOdd())
 
 """
