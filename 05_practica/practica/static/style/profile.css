@@ -1,0 +1,15 @@
+.profile_container{
+    width: 100%;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.profile_image{
+    min-width: 200px;
+    max-width: 600px;
+    width: 30%;
+}
+.profile_section {
+    text-align: right;
+}

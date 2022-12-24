@@ -1,0 +1,22 @@
+{%extends 'layout/base.html'%}
+
+{%block 'title'%}Todo: {{todo.title}}{%endblock%}
+
+{%block 'content'%}
+
+<form method="GET" action="{%url 'todo'%}">
+    <input type ="text" name="search" placeholder ="Buscar contacto"/>
+    <input type ="submit" value="Buscar"/>
+</form>
+
+
+<span> <a href="{%url 'todo'%}">Volver atras</a><a href="#">Añadir<a/></span>
+
+<ul class="lista">
+    <li>{{todo.title}}</li>
+    <li>{{todo.description}}</li>
+    <li>{{todo.date}}</li>
+    <li>{{todo.estimated_date}}</li>
+    <li>{{todo.priority}}</li>
+</ul>
+{%endblock%}

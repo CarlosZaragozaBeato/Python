@@ -1,0 +1,20 @@
+{%extends './layouts/base.html'%}
+
+{%load static%}
+
+
+{%block content%}
+<div class="gallery_container">
+    <h2>Galery Images</h2>
+    <div class="gallery_img_container">
+        <image src="{%static './images/gl_01.jpg'%}"/>
+        <image src="{%static './images/gl_02.jpg'%}"/>
+        <image src="{%static './images/gl_03.jpg'%}"/>
+        <image src="{%static './images/gl_04.jpg'%}"/>
+    </div>
+</div> 
+{%endblock%}
+
+{%block styles%}<link rel="stylesheet"  href="{%static './style/galery.css'%}"/>  {%endblock%}
+
+{%block title%}GALLERY{%endblock%}

@@ -1,0 +1,25 @@
+{%extends 'layout/base.html'%}
+
+{%block 'title'%}Contacto: {{contact.name}}{%endblock%}
+
+{%block 'content'%}
+
+<form method="GET" action="{%url 'contact'%}">
+    <input type ="text" name="search" placeholder ="Buscar contacto"/>
+    <input type ="submit" value="Buscar"/>
+</form>
+
+
+<span> <a href="{%url 'contact'%}">Volver atras</a><a href="#">Añadir<a/></span>
+
+<ul class="lista">
+    <li>{{contact.name}}</li>
+    <li>{{contact.last_name}}</li>
+    <li>{{contact.phone}}</li>
+    <li>{{contact.mobile}}</li>
+    <li>{{contact.email}}</li>
+    <li>{{contact.company}}</li>
+    <li>{{contact.date}}</li>
+    <li>{{contact.notes}}</li>
+</ul>
+{%endblock%}

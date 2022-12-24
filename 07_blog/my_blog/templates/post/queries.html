@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Todos los autores</h3>
+    <ul>
+        {%for author in authors%}
+        <li>{{author.name}}({{author.email}})</li>
+        {%endfor%}    
+    </ul>
+    <h3>Total de autores </h3> 
+    {{authors | length}}
+
+    <h3>filtrado</h3>
+        <ul>
+            {%for filter in filtered%}
+            <li>{{filter.name}}</li>
+            {%endfor%}
+        </ul>
+    <h4>Longitud Filtados</h4>
+    {{filtered|length}}
+
+    <h4>Primero</h4>
+    <p>{{author.name}}</p>
+    <h3>10 Primeros</h3>
+    <ul>
+        {%for lmt in limit%}
+        <li>{{lmt.name}}</li>
+        {%endfor%}
+    </ul>
+    <h4>Longitud Limite</h4>
+    {{limit|length}}
+
+    <h3>Divididos</h3>
+    <ul>
+        {%for off in offset%}
+        <li>{{off.name}}</li>
+        {%endfor%}
+    </ul>
+    <h4>Longitud</h4>
+    {{offset|length}}
+
+    <h3>Ordenadors</h3>
+    <ul>
+        {%for ord in orders%}
+        <li>{{ord.email}}</li>
+        {%endfor%}
+    </ul>
+    <h4>Longitud</h4>
+    {{orders|length}}
+
+    <h3>Filtrados 2</h3>
+    <ul>
+        {%for flt2 in filtered_2%}
+        <li>{{flt2.id}}</li>
+        {%endfor%}
+    </ul>
+    <h4>Longitud</h4>
+    {{filtered_2|length}}
+
+    <h3>Contiene</h3>
+    <ul>
+        {%for ct in contiene%}
+        <li>{{ct.name}}</li>
+        {%endfor%}
+    </ul>
+    <h4>Longitud</h4>
+    {{contiene|length}}
+</body>
+</body>
+</html>

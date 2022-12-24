@@ -1,0 +1,32 @@
+
+{%extends 'layout/base.html'%}
+
+{%block 'title'%}Todos{%endblock%}
+
+{%block 'style'%}
+{%load static%}
+    <link href="{%static 'css/forms.css'%}" rel="stylesheet"/>
+
+{%endblock%}
+
+{%block 'content'%}
+<span> <a href="{%url 'todo'%}">Volver atras</a></span>
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+        {{ message }}
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<form action="{%url 'todo_edit' id=id%}" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Enviar">
+</form>
+
+{%endblock%}
