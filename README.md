@@ -1,5 +1,0 @@
-# Python
-
-### Examples
-
-* Branches
